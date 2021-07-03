@@ -1,4 +1,4 @@
-import aQute.bnd.gradle.BundleTaskConvention;
+import aQute.bnd.gradle.BundleTaskExtension;
 
 plugins {
 	`java-library-conventions`
@@ -22,7 +22,7 @@ dependencies {
 }
 
 tasks.jar {
-	withConvention(BundleTaskConvention::class) {
+	configure<BundleTaskExtension> {
 		bnd("""
 			# Import JUnit4 packages with a version
 			Import-Package: \

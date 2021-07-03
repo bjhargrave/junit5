@@ -1,4 +1,4 @@
-import aQute.bnd.gradle.BundleTaskConvention
+import aQute.bnd.gradle.BundleTaskExtension
 import org.gradle.api.tasks.PathSensitivity.RELATIVE
 
 plugins {
@@ -33,7 +33,7 @@ tasks {
 
 tasks {
 	jar {
-		withConvention(BundleTaskConvention::class) {
+		configure<BundleTaskExtension> {
 			bnd("""
 				Provide-Capability:\
 					org.junit.platform.engine;\

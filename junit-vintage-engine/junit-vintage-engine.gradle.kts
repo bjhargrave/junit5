@@ -1,4 +1,4 @@
-import aQute.bnd.gradle.BundleTaskConvention
+import aQute.bnd.gradle.BundleTaskExtension
 
 plugins {
 	`java-library-conventions`
@@ -34,7 +34,7 @@ tasks {
 		})
 	}
 	jar {
-		withConvention(BundleTaskConvention::class) {
+		configure<BundleTaskExtension> {
 			val junit4Min = libs.versions.junit4Min.get()
 			bnd("""
 				# Import JUnit4 packages with a version
